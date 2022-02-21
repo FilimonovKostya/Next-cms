@@ -1,8 +1,10 @@
 import type {GetStaticProps} from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import client from "../contentful";
+import client from "../contentful/index";
 import {IMainPage, IMainPageFields} from "../contentful-types";
+import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
+
 
 const Home = ({home}: { home: IMainPage }) => {
     console.log('home --->', home.fields.heading);
@@ -11,7 +13,9 @@ const Home = ({home}: { home: IMainPage }) => {
             <Head>
                 <title>{home.fields.heading}</title>
             </Head>
-            {/*<main>{home.underHeading.content.map(el => e)}</main>*/}
+            <main>
+                <h1>{documentToReactComponents(home.fields.underHeading!)}</h1>
+            </main>
         </div>
     )
 }
