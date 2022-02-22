@@ -31,7 +31,7 @@ const Home = ({home, arcticle}: { home: IMainPage, arcticle: IArcticle[] }) => {
                                 <Card body>
                                     <CardTitle tag={'h5'}>{el.fields.title}</CardTitle>
                                     <CardText>{el.fields.description}</CardText>
-                                    <Link href={`/arcticles/${el.fields.slug}`}><Button>{el.fields.action}</Button></Link>
+                                    <Link href={`/articles/${el.fields.slug}`}><Button>{el.fields.action}</Button></Link>
                                 </Card>
                             </Col>
                         ))}
